@@ -2,9 +2,9 @@
 
 const mongoose = require('mongoose');
 const { countConnect } = require('../helpers/check.connect');
+const config = require('../configs/config.mongodb');
 
-const connectString = `mongodb+srv://root:VdHCrKy4QxCro3it@ecommnodejs.kp2ltnb.mongodb.net/?retryWrites=true&w=majority`;
-
+const connectString = `mongodb+srv://${config.db.account}:${config.db.password}@ecommnodejs.kp2ltnb.mongodb.net/?retryWrites=true&w=majority`;
 class Database {
   constructor() {
     this.connect();
