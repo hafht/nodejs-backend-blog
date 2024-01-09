@@ -8,9 +8,12 @@ const app = express();
 // Init  middleware
 app.use(morgan('dev'));
 app.use(helmet());
-// app.use(compression());
-// Init db
+app.use(compression());
 
+// Init db
+require('./dbs/init.mongodb');
+const { checkOverload } = require('./helpers/check.connect');
+// checkOverload();
 // Init router
 app.get('/', (req, res, next) => {
   const strCompress = 'Hello HaHt';
